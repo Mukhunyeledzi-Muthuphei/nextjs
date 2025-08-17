@@ -6,10 +6,6 @@
     }
   ],
   "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": ["/api/*"]
-  },
-  "mimeTypes": {
-    ".json": "application/json"
+    "rewrite": "/index.html"
   }
 }
