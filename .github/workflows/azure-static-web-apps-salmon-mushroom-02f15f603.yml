@@ -44,7 +44,7 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
           api_location: "" # Leave empty for Next.js API routes
-          output_location: ".next/standalone" # Built app content directory for standalone
+          output_location: ".next" # Built app content directory for standalone
           ###### End of Repository/Build Configurations ######
         env:
           NODE_VERSION: '18'
