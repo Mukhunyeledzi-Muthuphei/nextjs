@@ -24,6 +24,15 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Next.js app
+        run: npm run build
+      - name: Copy static files for Azure SWA
+        run: |
+          cp -r .next/static .next/standalone/.next/
+          cp -r public/* .next/standalone/
+          cp .next/server/app/index.html .next/standalone/
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -34,8 +43,8 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
-          api_location: "" # Leave empty for Next.js API routes - Azure will auto-detect
-          output_location: "" # Leave empty for Next.js - Azure will auto-detect
+          api_location: "" # Leave empty for Next.js API routes
+          output_location: ".next/standalone" # Built app content directory for standalone
           ###### End of Repository/Build Configurations ######
         env:
           NODE_VERSION: '18'
