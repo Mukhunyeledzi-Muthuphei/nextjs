@@ -6,6 +6,11 @@
     }
   ],
   "navigationFallback": {
-    "rewrite": "/index.html"
+    "rewrite": "/index.html",
+    "exclude": ["/api/*", "/_next/*", "/favicon.ico"]
+  },
+  "mimeTypes": {
+    ".js": "text/javascript",
+    ".css": "text/css"
   }
 }
