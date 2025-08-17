@@ -34,12 +34,12 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
-          api_location: "" # Empty for Next.js API routes - Azure will auto-convert them
-          output_location: ".next" # Explicit build output directory
+          api_location: "" # Empty for Next.js API routes
+          output_location: ".next" # Standalone build output
           ###### End of Repository/Build Configurations ######
         env:
           NODE_VERSION: '18'
-          APP_BUILD_COMMAND: 'npm ci && npm run build && cp .next/server/app/index.html .next/ && cp -r public/* .next/'
+          APP_BUILD_COMMAND: 'npm ci && npm run build && cp -r .next/static .next/standalone/.next/ && cp -r public/* .next/standalone/ && cp .next/server/app/index.html .next/standalone/index.html'
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
