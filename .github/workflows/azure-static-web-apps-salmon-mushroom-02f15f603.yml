@@ -37,10 +37,7 @@ jobs:
           api_location: "" # Empty for Next.js API routes
           output_location: ".next" # Standalone build output
           ###### End of Repository/Build Configurations ######
-        env:
-          NODE_VERSION: '18'
-          APP_BUILD_COMMAND: 'npm ci && npm run build && cp -r .next/static .next/standalone/.next/ && cp -r public/* .next/ && cp .next/server/app/index.html .next/index.html'
-
+       
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
