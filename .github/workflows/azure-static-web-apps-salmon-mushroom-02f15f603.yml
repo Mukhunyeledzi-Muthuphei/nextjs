@@ -34,7 +34,7 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
-          api_location: "src/app/api" # Explicit path to Next.js API routes
+          api_location: "" # Empty for Next.js API routes - Azure will auto-convert them
           output_location: ".next" # Explicit build output directory
           ###### End of Repository/Build Configurations ######
         env:
