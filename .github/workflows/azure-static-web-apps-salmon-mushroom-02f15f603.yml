@@ -39,7 +39,8 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
           NODE_VERSION: '18'
-          CUSTOM_BUILD_COMMAND: 'npm run build'
+          NPM_RC_CONTENT: ''
+          APP_BUILD_COMMAND: 'npm ci && npm run build'
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
